@@ -7,10 +7,12 @@ namespace InventoryManagementSystemApp.Controllers
     public class AppUserController : Controller
     {
         private readonly IUserService _user;
+        private readonly ILoginService _loginService;
 
-        public AppUserController(IUserService user)
+        public AppUserController(IUserService user, ILoginService loginService)
         {
             _user = user;
+            _loginService = loginService;
         }
         public async Task<IActionResult> Index()
         {

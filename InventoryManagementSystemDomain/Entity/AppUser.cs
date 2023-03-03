@@ -8,7 +8,6 @@ namespace InventoryManagementSystemDomain.Entity
     {
         [Key]
         public int Id { get; set; }
-
         [Display(Name = "First Name")]
         [Required(ErrorMessage = "First Name is required")]
         [StringLength(100, ErrorMessage = "First Name must be a maximum length of 100")]

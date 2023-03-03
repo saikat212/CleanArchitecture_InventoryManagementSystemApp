@@ -13,6 +13,7 @@ builder.Services.AddControllersWithViews();
 
 #region Dependency Injection
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ILoginService, LoginService>();
 #endregion
 
 
