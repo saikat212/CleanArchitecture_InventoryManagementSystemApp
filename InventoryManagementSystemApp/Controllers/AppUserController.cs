@@ -26,6 +26,7 @@ namespace InventoryManagementSystemApp.Controllers
                 throw;
             }
         }
+
         [HttpGet]
         public IActionResult Create()
         {
