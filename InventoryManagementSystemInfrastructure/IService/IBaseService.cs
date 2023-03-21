@@ -10,7 +10,8 @@ namespace InventoryManagementSystemInfrastructure.IService
     public interface IBaseService<TEntity> where TEntity : class
     {
         // Searching Objects
-        Task<TEntity> Get(int Id);
+        Task<TEntity> GetById(int Id);
+        Task<TEntity> GetByName(string name);
         Task<IEnumerable<TEntity>> GetAll();
         IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
         Task<TEntity> GetFirstOrDefault(Expression<Func<TEntity, bool>> predicate);
