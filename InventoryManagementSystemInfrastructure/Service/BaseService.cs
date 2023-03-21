@@ -17,10 +17,17 @@ namespace InventoryManagementSystemInfrastructure.Service
 
 
         #region Searching
-        public async Task<TEntity> Get(int Id)
+        public async Task<TEntity> GetById(int Id)
         {
             return await context.Set<TEntity>().FindAsync(Id);
         }
+        //search by name and return object , write action code
+        public async Task<TEntity> GetByName(string name)
+        {
+            return await context.Set<TEntity>().FindAsync(name);
+        }
+
+
         public async Task<IEnumerable<TEntity>> GetAll()
         {
             return await context.Set<TEntity>().ToListAsync();

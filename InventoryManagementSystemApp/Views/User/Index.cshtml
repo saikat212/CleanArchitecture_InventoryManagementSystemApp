@@ -5,12 +5,45 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>All User</h1>
+<h3>Operations</h3>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<br />
+<p>
+    <a asp-action="">retrieve all users</a>
+</p>
+<br />
+<p>
+    <a asp-action="">retrieve a user by :id</a>
+</p>
+<br />
+<p>
+    <a asp-action="">retrieve a user by :name</a>
+</p>
+<br />
+<p>
+    <a asp-action="">
+        update a user by :id
+    </a>
+</p>
+<br />
+<p>
+    <a asp-action="">delete a user by :id</a>
+</p>
+<br />
+<p>
+    <a asp-action="">delete all users</a>
+</p>
+<br />
+<p>
+    <a asp-action=""> get users by the same role </a>
+</p>
+<br />
 
+
+<hr />
 <div>
     @{
         if (TempData["Message"] != null)

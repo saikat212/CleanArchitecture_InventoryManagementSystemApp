@@ -35,5 +35,76 @@ namespace InventoryManagementSystemApp.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("Create")]
+        public IActionResult Create()
+        {
+            return View(new AppUser());
+        }
+        [HttpPost]
+        public async Task<IActionResult> Create(AppUser user)
+        {
+            try
+            {
+                if (!ModelState.IsValid) return View(user);
+                AppUser existingUser = await _user.CheckIfExist(user.UserName);
+                if (existingUser != null)
+                {
+                    TempData["Message"] = "User name is already exist";
+                    return View(user);
+                }
+                await _user.Save(user);
+                TempData["Message"] = "Successfully Saved";
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+
+        // retrieve a user by :id with /api/ user /:id
+
+        [HttpGet]
+        [Route("Details/{id}")]
+        public async Task<IActionResult> Details(int id)
+        {
+            try
+            {
+                var user = await _user.GetById(id);
+
+                return View(user);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        // /api/user/:name retrieve a user by :name
+        [HttpGet]
+        [Route("Details/{name}")]
+
+        public async Task<IActionResult> Details(string name)
+        {
+            try
+            {
+                var user = await _user.GetByName(name);
+                return View(user);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+
+
+
+
+
     }
 }

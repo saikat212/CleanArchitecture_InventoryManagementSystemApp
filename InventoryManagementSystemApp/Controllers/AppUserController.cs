@@ -59,7 +59,7 @@ namespace InventoryManagementSystemApp.Controllers
         {
             try
             {
-                var user = await _user.Get(id);
+                var user = await _user.GetById(id);
                 return View(user);
             }
             catch (Exception)
@@ -76,7 +76,7 @@ namespace InventoryManagementSystemApp.Controllers
             {
                 if (!ModelState.IsValid) return View(user);
 
-                AppUser existingUser = await _user.Get(user.Id);
+                AppUser existingUser = await _user.GetById(user.Id);
 
                 existingUser.FirstName = user.FirstName;
                 existingUser.MiddleName = user.MiddleName;
@@ -102,7 +102,7 @@ namespace InventoryManagementSystemApp.Controllers
         {
             try
             {
-                var user = await _user.Get(id);
+                var user = await _user.GetById(id);
                 _user.Remove(user);
                 TempData["Message"] = "Successfully Deleted";
                 return RedirectToAction("Index");
