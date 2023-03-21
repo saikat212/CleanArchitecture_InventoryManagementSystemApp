@@ -1,4 +1,5 @@
-﻿using InventoryManagementSystemInfrastructure.IService;
+﻿using InventoryManagementSystemDomain.Entity;
+using InventoryManagementSystemInfrastructure.IService;
 using InventoryManagementSystemInfrastructure.Service;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,5 +17,12 @@ namespace InventoryManagementSystemApp.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public IActionResult SignIn()
+        {
+            return View(new AppUser());
+        }
+
     }
 }
